@@ -83,6 +83,7 @@ class MButton extends Component {
           style={[
             styles.btn,
             buttonType.button,
+            icon === "More" && { backgroundColor: Colors.green },
             !enabled && type !== "Icon" ? buttonType.disabledButton : null,
             type === "RegularButton" && icon ? { width: 81, height: 32 } : null,
             buttonType.sizes,
@@ -118,7 +119,7 @@ class MButton extends Component {
                   theme === "INVERTED_RED" &&
                     !enabled && { color: Colors.disabledButton }
                 ]}
-                name={icon === "DELETE" ? "trash" : "heart"}
+                name={icon === "Delete" ? "trash" : icon==='More'?'book':'heart'}
               />
             )
           )}
@@ -142,7 +143,9 @@ class MButton extends Component {
               </Text>
             )}
         </TouchableOpacity>
-        {type === "SubTextButton" && <Text style={buttonType.text}>{label}</Text>}
+        {type === "SubTextButton" && (
+          <Text style={buttonType.text}>{label}</Text>
+        )}
       </View>
     );
   }
@@ -283,7 +286,7 @@ const ActionButton = StyleSheet.create({
   button: {
     backgroundColor: Colors.themeRed,
     width: 60,
-    height: 120,
+    height: 102,
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
