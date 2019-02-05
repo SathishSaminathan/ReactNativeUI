@@ -119,7 +119,17 @@ class MButton extends Component {
                   theme === "INVERTED_RED" &&
                     !enabled && { color: Colors.disabledButton }
                 ]}
-                name={icon === "Delete" ? "trash" : icon==='More'?'book':'heart'}
+                name={
+                  icon === "Delete"
+                    ? "trash"
+                    : icon === "More"
+                    ? "book"
+                    : icon === "Back"
+                    ? "arrow-left"
+                    : icon === "Close"
+                    ? "close"
+                    : "heart"
+                }
               />
             )
           )}
