@@ -1,19 +1,12 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow
- * @lint-ignore-every XPLATJSCOPYRIGHT1
- */
-
 import React, { Component } from "react";
 import { Platform, StyleSheet, Text, View, Alert, Button } from "react-native";
 import Sound from "react-native-sound";
 
 import MButton from "./app/components/MButton";
+import MBubble from "./app/components/MBubble";
 import RippleAnimation from "./app/components/RippleAnimation";
 import TextAnimation from "./app/components/TextAnimation";
+import PlayGround from "./app/components/playground";
 
 export default class App extends Component {
   onPress = () => {
@@ -26,7 +19,7 @@ export default class App extends Component {
   render() {
     return (
       <View style={styles.container} onPress={this.onPlay}>
-        {/* <MButton
+        {/* <CustomButton
           theme="RED"
           icon="heart"
           type="CircularButton"
@@ -37,8 +30,8 @@ export default class App extends Component {
           onPress={this.onPress}
         /> */}
         {/* <RippleAnimation/> */}
-        {/* <TextAnimation /> */}
-        <MButton type="ActionButton" icon="DELETE" label="Delete"/>
+
+        <PlayGround />
       </View>
     );
   }
