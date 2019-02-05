@@ -11,7 +11,7 @@ import React, { Component } from "react";
 import { Platform, StyleSheet, Text, View, Alert, Button } from "react-native";
 import Sound from "react-native-sound";
 
-import CustomButton from "./app/components/CustomButton";
+import MButton from "./app/components/MButton";
 import RippleAnimation from "./app/components/RippleAnimation";
 import TextAnimation from "./app/components/TextAnimation";
 
@@ -26,7 +26,7 @@ export default class App extends Component {
   render() {
     return (
       <View style={styles.container} onPress={this.onPlay}>
-        {/* <CustomButton
+        {/* <MButton
           theme="RED"
           icon="heart"
           type="CircularButton"
@@ -37,7 +37,8 @@ export default class App extends Component {
           onPress={this.onPress}
         /> */}
         {/* <RippleAnimation/> */}
-        <TextAnimation />
+        {/* <TextAnimation /> */}
+        <MButton type="ActionButton" icon="DELETE" label="Delete"/>
       </View>
     );
   }
