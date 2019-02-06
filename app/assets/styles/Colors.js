@@ -4,6 +4,8 @@ export default {
     disabledButton: "#C7C7CC",
     white: "#FFFFFF",
     green:'#4CD964',
-    lightgrey:'#EFEFF4'
+    lightgrey:'#EFEFF4',
+    darkGrey:'#676771',
+    blue:'#1B89FB'
   };
   
