@@ -6,6 +6,7 @@ import MPage from "./MPage";
 import MCard from "./MCard";
 import Colors from "../assets/styles/Colors";
 import MButton from "./MButton";
+import MDialog from "./MDialog";
 
 export default class PlayGround extends Component {
   constructor(props) {
@@ -70,6 +71,7 @@ export default class PlayGround extends Component {
         {/* <MCard type="Large"/> */}
         {/* <MCard type="XLarge"/> */}
 
+        <MDialog type="OK_CANCEL" size="LARGE" buttonStyle="THEME"  buttonPlacement="INLINE_TOP_RIGHT"/>
       </View>
     );
   }
