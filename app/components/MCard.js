@@ -40,7 +40,7 @@ class MCard extends Component {
         <View
           style={[
             styles.card,
-            cardType,
+            cardType.style,
             width && { width: width },
             height && { height: height }
           ]}
@@ -73,31 +73,43 @@ const styles = StyleSheet.create({
 });
 
 const Card = StyleSheet.create({
-  width: 154,
-  height: 240
+  style: {
+    width: 154,
+    height: 240
+  }
 });
 
 const CardLong = StyleSheet.create({
-  width: 154,
-  height: 193
+  style: {
+    width: 154,
+    height: 193
+  }
 });
 
 const Small = StyleSheet.create({
-  width: 359,
-  height: 87
+  style: {
+    width: 359,
+    height: 87
+  }
 });
 
 const Medium = StyleSheet.create({
-  width: 359,
-  height: 257
+  style: {
+    width: 359,
+    height: 257
+  }
 });
 
 const Large = StyleSheet.create({
-  width: 359,
-  height: 368
+  style: {
+    width: 359,
+    height: 368
+  }
 });
 
 const XLarge = StyleSheet.create({
-  width: 359,
-  height: 480
+  style: {
+    width: 359,
+    height: 480
+  }
 });

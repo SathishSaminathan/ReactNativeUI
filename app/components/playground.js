@@ -30,7 +30,7 @@ export default class PlayGround extends Component {
           // padding: 5
         }}
       >
-        <View style={{
+        {/* <View style={{
           flex:1,
           justifyContent:'space-around'
         }}>
@@ -38,7 +38,7 @@ export default class PlayGround extends Component {
         <MBubble status="UnRead"  />
         <MBubble status="Read" action="Delete" />
         <MBubble status="Read" action="More" />
-        </View>
+        </View> */}
 
         {/* <MButton type="CircularIcon" icon="Save" onPress={()=>this._sample()}/>
         <MButton type="ActionButton" icon="Save" onPress={()=>this._sample1()}/> */}
