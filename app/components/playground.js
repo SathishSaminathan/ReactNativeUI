@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { View, Text, Alert } from "react-native";
+import { View, Text, Alert, Switch } from "react-native";
 
 import MBubble from "./MBubble";
 import MPage from "./MPage";
@@ -7,6 +7,7 @@ import MCard from "./MCard";
 import Colors from "../assets/styles/Colors";
 import MButton from "./MButton";
 import MDialog from "./MDialog";
+import MListButton from "./MListButton";
 
 export default class PlayGround extends Component {
   constructor(props) {
@@ -14,20 +15,19 @@ export default class PlayGround extends Component {
     this.state = {};
   }
 
-  _sample=()=>{
-    Alert.alert("hai")
-  }
-  _sample1=()=>{
-    Alert.alert("Tamil")
-  }
-
+  _sample = () => {
+    Alert.alert("hai");
+  };
+  _sample1 = () => {
+    Alert.alert("Tamil");
+  };
 
   render() {
     return (
       <View
         style={{
           flex: 1,
-          backgroundColor: Colors.lightgrey,
+          backgroundColor: Colors.lightgrey
           // padding: 5
         }}
       >
@@ -45,7 +45,6 @@ export default class PlayGround extends Component {
         <MButton type="ActionButton" icon="Save" onPress={()=>this._sample1()}/> */}
 
         {/* <MPage button="Back" title="Notifications" subtitle="Create an account to continue Create an account to continue.."/> */}
-
 
         {/* <View
           style={{
@@ -71,7 +70,28 @@ export default class PlayGround extends Component {
         {/* <MCard type="Large"/> */}
         {/* <MCard type="XLarge"/> */}
 
-        <MDialog type="OK_CANCEL" size="LARGE" buttonStyle="THEME"  buttonPlacement="INLINE_TOP_RIGHT"/>
+        {/* <MDialog type="OK_CANCEL" size="LARGE" buttonStyle="THEME"  buttonPlacement="INLINE_TOP_RIGHT"/> */}
+
+        <MListButton
+          icon="plane"
+          iconText="Airplane Mode"
+          isExpand={true}
+          buttonStatus="Connected"
+          actionButton={Switch}
+        />
+        {/* <MListButton
+          icon="wifi"
+          iconText="Wi-Fi"
+          buttonStatus="Connected"
+          actionButton=""
+        />
+        <MListButton
+          icon="bluetooth"
+          iconText="Bluetooth"
+          buttonStatus="on"
+          actionButton=""
+        />
+        <MListButton icon="music" iconText="Cellular" actionButton="" /> */}
       </View>
     );
   }
