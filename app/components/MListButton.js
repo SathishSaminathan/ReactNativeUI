@@ -44,8 +44,9 @@ class MListButton extends Component {
                 )}
                 {actionButton ? (
                   <ActionButton
+                    style={styles.actionButtonStyle}
                     onValueChange={isSwitchOn => this.setState({ isSwitchOn })}
-                    thumbColor={Colors.white}
+                    thumbTintColor={Colors.white}
                     onTintColor={
                       isSwitchOn ? Colors.themeRed : Colors.disabledButton
                     }
@@ -128,6 +129,9 @@ const styles = StyleSheet.create({
   buttonStatusStyle: {
     fontSize: 16,
     color: Colors.disabledButton
+  },
+  actionButtonStyle: {
+    paddingHorizontal: 2
   },
   isExpandStyle: {
     fontSize: 20,
