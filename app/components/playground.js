@@ -1,5 +1,12 @@
 import React, { Component } from "react";
-import { View, Text, Alert, Switch } from "react-native";
+import {
+  View,
+  Text,
+  Alert,
+  Switch,
+  ScrollView,
+  Dimensions
+} from "react-native";
 
 import MBubble from "./MBubble";
 import MPage from "./MPage";
@@ -8,19 +15,32 @@ import Colors from "../assets/styles/Colors";
 import MButton from "./MButton";
 import MDialog from "./MDialog";
 import MListButton from "./MListButton";
+import MFormField from "./MFormField";
+
+const { width, height } = Dimensions.get("window");
 
 export default class PlayGround extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      Name: "",
+      Email: "",
+      Password: ""
+    };
   }
 
-  _sample = () => {
-    Alert.alert("hai");
-  };
-  _sample1 = () => {
-    Alert.alert("Tamil");
-  };
+  // setValue = (type, value) => {
+  //   this.setState(
+  //     {
+  //       [type]: value
+  //     },
+  //     () => {
+  //       console.log("Name...", this.state.Name),
+  //         console.log("Email...", this.state.Email),
+  //         console.log("Password...", this.state.Password);
+  //     }
+  //   );
+  // };
 
   render() {
     return (
@@ -41,8 +61,8 @@ export default class PlayGround extends Component {
         <MBubble status="Read" action="More" />
         </View> */}
 
-        {/* <MButton type="CircularIcon" icon="Save" onPress={()=>this._sample()}/>
-        <MButton type="ActionButton" icon="Save" onPress={()=>this._sample1()}/> */}
+        {/* <MButton type="CircularIcon" icon="Save" />
+        <MButton type="ActionButton" icon="Save" /> */}
 
         {/* <MPage button="Back" title="Notifications" subtitle="Create an account to continue Create an account to continue.."/> */}
 
@@ -72,14 +92,14 @@ export default class PlayGround extends Component {
 
         {/* <MDialog type="OK_CANCEL" size="LARGE" buttonStyle="THEME"  buttonPlacement="INLINE_TOP_RIGHT"/> */}
 
-        <MListButton
+        {/* <MListButton
           icon="plane"
           iconText="Airplane Mode"
           isExpand={true}
           buttonStatus="Connected"
           actionButton={Switch}
         />
-        {/* <MListButton
+        <MListButton
           icon="wifi"
           iconText="Wi-Fi"
           buttonStatus="Connected"
@@ -92,6 +112,57 @@ export default class PlayGround extends Component {
           actionButton=""
         />
         <MListButton icon="music" iconText="Cellular" actionButton="" /> */}
+
+        <View
+          style={{
+            alignItems: "center",
+            justifyContent: "space-around",
+            height: height / 2
+          }}
+        >
+          <MFormField
+            label="Name"
+            // labelName="Name"
+            icon="person"
+            type="INPUT"
+            isActive={false}
+            isValid={true}
+            defaultValue=""
+            defaultValues=""
+            value=""
+            values=""
+            validationErrors=""
+            // getValue={this.setValue}
+          />
+          <MFormField
+            label="Email Address"
+            // labelName="Email"
+            icon="mail"
+            type="EMAIL"
+            isActive={false}
+            isValid={false}
+            defaultValue=""
+            defaultValues=""
+            value=""
+            values=""
+            validationErrors={["Invalid Email Address"]}
+            // getValue={this.setValue}
+          />
+          <MFormField
+            label="Confirm Password"
+            // labelName="Password"
+            icon="lock"
+            type="PASSWORD"
+            isActive={false}
+            isValid={true}
+            defaultValue=""
+            defaultValues=""
+            value=""
+            values=""
+            validationErrors=""
+            // getValue={this.setValue}
+          />
+        </View>
       </View>
     );
   }
