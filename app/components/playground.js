@@ -25,6 +25,7 @@ import {
 } from "../assets/styles/themes";
 import MDivider from "./MDivider";
 import MOrDivider from "./MOrDivider";
+import MStories from "./MStories";
 
 const { width, height } = Dimensions.get("window");
 
@@ -330,8 +331,27 @@ export default class PlayGround extends Component {
           />
         </View> */}
 
-        <Text>Divider</Text>
+        <Text>Stories</Text>
         <MOrDivider/>
+        <View
+          style={{
+            height: height / 2,
+            flexDirection: "column",
+            justifyContent: "space-around"
+          }}
+        >
+          <MStories numberOfSeenStories={2} numberOfStories={3} />
+          <MStories
+            numberOfSeenStories={5}
+            numberOfStories={6}
+            customStories={["#4CD964", "#FF2956", "#4CD964", "#FF2956"]}
+          />
+          <MStories
+            numberOfSeenStories={4}
+            numberOfStories={8}
+            customStories={["#4CD964", "#FF2956", "#4CD964", "#FF2956"]}
+          />
+        </View>
       </View>
     );
   }
