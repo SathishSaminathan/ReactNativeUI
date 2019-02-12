@@ -8,6 +8,8 @@ export default {
   darkGrey: "#676771",
   blue: "#1B89FB",
   black: "#000000",
-  grey:'#E5E5EA',
-  darkGreen:'green'
+  grey: "#E5E5EA",
+  iconBackground:'#D1D1D6',
+  darkGreen: "green",
+  transparent: "transparent",
 };

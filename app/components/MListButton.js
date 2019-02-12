@@ -4,9 +4,11 @@ import FontAwesome from "react-native-vector-icons/FontAwesome";
 import PropTypes from "prop-types";
 import Icon from "react-native-vector-icons/MaterialIcons";
 
+import Colors from "../assets/styles/Colors";
+import { Icons } from "../assets/styles/themes";
+
 const { width, height } = Dimensions.get("window");
 
-import Colors from "../assets/styles/Colors";
 class MListButton extends Component {
   constructor(props) {
     super(props);
@@ -56,7 +58,7 @@ class MListButton extends Component {
                 ) : (
                   <Icon
                     style={styles.isExpandStyle}
-                    name="keyboard-arrow-right"
+                    name={Icons.ARROWRIGHT}
                   />
                 )}
               </View>

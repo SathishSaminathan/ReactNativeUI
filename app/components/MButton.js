@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 
+import { Theme, Icons, ButtonConst } from "../assets/styles/themes";
 import Colors from "../assets/styles/Colors";
 
 class MButton extends Component {
@@ -20,16 +21,16 @@ class MButton extends Component {
 
   getSize() {
     const { size } = this.props;
-    if (size === "XSmall") {
+    if (size === ButtonConst.Size.XSMALL) {
       return XSmall;
     }
-    if (size === "Small") {
+    if (size === ButtonConst.Size.SMALL) {
       return Small;
     }
-    if (size === "Medium") {
+    if (size === ButtonConst.Size.MEDIUM) {
       return Medium;
     }
-    if (size === "Large") {
+    if (size === ButtonConst.Size.LARGE) {
       return Large;
     }
     return Default;
@@ -38,28 +39,28 @@ class MButton extends Component {
   getType() {
     console.log("type value...");
     const { type } = this.props;
-    if (type === "Icon") {
+    if (type === ButtonConst.Type.ICON) {
       return Icon;
     }
-    if (type === "CircularIcon") {
+    if (type === ButtonConst.Type.CIRCULARICON) {
       return CircularIcon;
     }
-    if (type === "NotificationButton") {
+    if (type === ButtonConst.Type.NOTIFICATIONBUTTON) {
       return NotificationButton;
     }
-    if (type === "CircularButton") {
+    if (type === ButtonConst.Type.CIRCULARBUTTON) {
       return CircularButton;
     }
-    if (type === "RegularButton") {
+    if (type === ButtonConst.Type.REGULARBUTTON) {
       return RegularButton;
     }
-    if (type === "SubTextButton") {
+    if (type === ButtonConst.Type.SUBTEXTBUTTON) {
       return SubTextButton;
     }
-    if (type === "BottomButton") {
+    if (type === ButtonConst.Type.BOTTOMBUTTON) {
       return BottomButton;
     }
-    if (type === "ActionButton") {
+    if (type === ButtonConst.Type.ACTIONBUTTON) {
       return ActionButton;
     }
   }
@@ -75,7 +76,7 @@ class MButton extends Component {
           {
             alignItems: "center"
           },
-          type === "BottomButton" ? buttonType.outerButton : null
+          type === ButtonConst.Type.BOTTOMBUTTON ? buttonType.outerButton : null
         ]}
       >
         <TouchableOpacity
@@ -83,22 +84,26 @@ class MButton extends Component {
           style={[
             styles.btn,
             buttonType.button,
-            icon === "More" && { backgroundColor: Colors.green },
-            !enabled && type !== "Icon" ? buttonType.disabledButton : null,
-            type === "RegularButton" && icon ? { width: 81, height: 32 } : null,
+            icon === Icons.MORE && { backgroundColor: Colors.green },
+            !enabled && type !== ButtonConst.Type.ICON
+              ? buttonType.disabledButton
+              : null,
+            type === ButtonConst.Type.REGULARBUTTON && icon
+              ? { width: 81, height: 32 }
+              : null,
             buttonType.sizes,
-            theme === "INVERTED_RED" && {
+            theme === Theme.INVERTED_RED && {
               backgroundColor: "white",
               borderWidth: 1,
               borderColor: Colors.themeRed
             },
-            theme === "INVERTED_RED" &&
+            theme === Theme.INVERTED_RED &&
               !enabled && { borderColor: Colors.disabledIcon }
           ]}
           onPress={onPress}
           activeOpacity={0.2}
         >
-          {type === "NotificationButton" ? (
+          {type === ButtonConst.Type.NOTIFICATIONBUTTON ? (
             <Text
               style={[
                 buttonType.icon,
@@ -113,39 +118,29 @@ class MButton extends Component {
                 style={[
                   buttonType.icon,
                   !enabled ? buttonType.disabledIcon : null,
-                  theme === "INVERTED_RED" && {
+                  theme === Theme.INVERTED_RED && {
                     color: Colors.themeRed
                   },
-                  theme === "INVERTED_RED" &&
+                  theme === Theme.INVERTED_RED &&
                     !enabled && { color: Colors.disabledButton }
                 ]}
-                name={
-                  icon === "Delete"
-                    ? "trash"
-                    : icon === "More"
-                    ? "book"
-                    : icon === "Back"
-                    ? "arrow-left"
-                    : icon === "Close"
-                    ? "close"
-                    : "heart"
-                }
+                name={icon}
               />
             )
           )}
           {label &&
-            type !== "SubTextButton" &&
-            type !== "CircularIcon" &&
-            type !== "Icon" &&
-            type !== "NotificationButton" && (
+            type !== ButtonConst.Type.SUBTEXTBUTTON &&
+            type !== ButtonConst.Type.CIRCULARICON &&
+            type !== ButtonConst.Type.ICON &&
+            type !== ButtonConst.Type.NOTIFICATIONBUTTON && (
               <Text
                 style={[
                   buttonType.text,
                   !enabled ? buttonType.disabledText : null,
-                  theme === "INVERTED_RED" && {
+                  theme === Theme.INVERTED_RED && {
                     color: Colors.themeRed
                   },
-                  theme === "INVERTED_RED" &&
+                  theme === Theme.INVERTED_RED &&
                     !enabled && { color: Colors.disabledButton }
                 ]}
               >
@@ -153,7 +148,7 @@ class MButton extends Component {
               </Text>
             )}
         </TouchableOpacity>
-        {type === "SubTextButton" && (
+        {type === ButtonConst.Type.SUBTEXTBUTTON && (
           <Text style={buttonType.text}>{label}</Text>
         )}
       </View>

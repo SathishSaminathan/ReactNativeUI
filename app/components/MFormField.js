@@ -4,6 +4,7 @@ import Icon from "react-native-vector-icons/MaterialIcons";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 
 import Colors from "../assets/styles/Colors";
+import { FormField, Icons } from "../assets/styles/themes";
 
 const { width, height } = Dimensions.get("window");
 
@@ -68,11 +69,15 @@ class MFormField extends Component {
             value={value}
             returnKeyType="next"
             onSubmitEditing={() => this.refs.Name.blur()}
-            underlineColorAndroid={isValid ? "transparent" : Colors.themeRed}
+            underlineColorAndroid={isValid ? Colors.transparent : Colors.themeRed}
             selectionColor={Colors.themeRed}
             autoCorrect={false}
-            keyboardType={type === "EMAIL" ? "email-address" : "default"}
-            secureTextEntry={type === "PASSWORD" && !showPassword && true}
+            keyboardType={
+              type === FormField.Type.EMAIL ? "email-address" : "default"
+            }
+            secureTextEntry={
+              type === FormField.Type.PASSWORD && !showPassword && true
+            }
             onFocus={() => this.setState({ isFocused: true })}
             onBlur={() =>
               this.setState({
@@ -87,10 +92,10 @@ class MFormField extends Component {
         <View
           style={[
             styles.validationArea,
-            type === "PASSWORD" && { paddingRight: 10 }
+            type === FormField.Type.PASSWORD && { paddingRight: 10 }
           ]}
         >
-          {type === "PASSWORD" && (
+          {type === FormField.Type.PASSWORD && (
             <FontAwesome
               onPress={() => this.setState({ showPassword: !showPassword })}
               style={[
@@ -102,12 +107,12 @@ class MFormField extends Component {
                       color: Colors.disabledIcon
                     }
               ]}
-              name={showPassword ? "eye" : "eye-slash"}
+              name={showPassword ? Icons.EYEOPEN : Icons.EYECLOSE}
             />
           )}
           <Icon
             style={IsValidOrNot.iconStyle}
-            name={isValid ? "done" : "close"}
+            name={isValid ? Icons.TICK : Icons.CLOSE}
           />
         </View>
       </View>
