@@ -10,6 +10,7 @@ export default {
   black: "#000000",
   grey: "#E5E5EA",
   iconBackground:'#D1D1D6',
+  deepLight:'#EDEDED',
   darkGreen: "green",
   transparent: "transparent",
 };
