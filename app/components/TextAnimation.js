@@ -15,25 +15,25 @@ class TextAnimation extends Component {
     // this.playMusic();
   }
 
-  playMusic=()=>{
+  playMusic = () => {
     const music = new Sound("introsound.mp3", Sound.MAIN_BUNDLE, error => {
-        if (error) {
-          console.log("failed to load the sound", error);
-          return;
+      if (error) {
+        console.log("failed to load the sound", error);
+        return;
+      }
+      // loaded successfully, play
+      music.play(success => {
+        if (success) {
+          console.log("successfully finished playing");
+        } else {
+          console.log("playback failed due to audio decoding errors");
         }
-        // loaded successfully, play
-        music.play(success => {
-          if (success) {
-            console.log("successfully finished playing");
-          } else {
-            console.log("playback failed due to audio decoding errors");
-          }
-        });
       });
-  }
+    });
+  };
 
   animate = () => {
-      this.playMusic();
+    this.playMusic();
     console.log("animating");
     this.animated.setValue(0);
     Animated.timing(this.animated, {
