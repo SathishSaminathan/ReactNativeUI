@@ -14,6 +14,7 @@ import {
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 
 import Colors from "../assets/styles/Colors";
+import { ButtonConst } from "../assets/styles/themes";
 
 const { width, height } = Dimensions.get("window");
 const Small = {
@@ -31,19 +32,19 @@ const Large = {
 
 const OK_CANCEL = [
   {
-    yes: "Ok"
+    yes: ButtonConst.Type.OK
   },
   {
-    no: "Cancel"
+    no: ButtonConst.Type.CANCEL
   }
 ];
 
 const YES_NO = [
   {
-    yes: "Yes"
+    yes: ButtonConst.Type.YES
   },
   {
-    no: "No"
+    no: ButtonConst.Type.NO
   }
 ];
 
@@ -58,33 +59,33 @@ class MDialog extends Component {
   getSize() {
     const { size } = this.props;
 
-    if (size === "SMALL") {
+    if (size === ButtonConst.Size.SMALL) {
       return SMALL;
     }
-    if (size === "MEDIUM") {
+    if (size === ButtonConst.Size.MEDIUM) {
       return MEDIUM;
     }
-    if (size === "LARGE") {
+    if (size === ButtonConst.Size.LARGE) {
       return LARGE;
     }
   }
 
   getButtonStyles() {
     const { buttonStyle } = this.props;
-    if (buttonStyle === "IOS") {
+    if (buttonStyle === ButtonConst.Style.IOS) {
       return IOS;
     }
-    if (buttonStyle === "THEME") {
+    if (buttonStyle === ButtonConst.Style.THEME) {
       return THEME;
     }
   }
 
   getType() {
     const { type } = this.props;
-    if (type === "OK_CANCEL") {
+    if (type === ButtonConst.Type.OK_CANCEL) {
       return OK_CANCEL;
     }
-    if (type === "YES_NO") {
+    if (type === ButtonConst.Type.YES_NO) {
       return YES_NO;
     }
     return OK_CANCEL;
@@ -111,14 +112,16 @@ class MDialog extends Component {
           <View style={styles.modelArea}>
             <View style={dialogSize.dialogStyle}>
               <View style={dialogSize.dialogCloseArea}>
-                {type === "CLOSE" && buttonPlacement === "INLINE_TOP_RIGHT" && (
-                  <TouchableOpacity onPress={() => this.closeModal()}>
-                    <FontAwesome
-                      style={dialogSize.closeIcon}
-                      name={type.toLowerCase()}
-                    />
-                  </TouchableOpacity>
-                )}
+                {type === ButtonConst.Type.CLOSE &&
+                  buttonPlacement ===
+                    ButtonConst.Placement.INLINE_TOP_RIGHT && (
+                    <TouchableOpacity onPress={() => this.closeModal()}>
+                      <FontAwesome
+                        style={dialogSize.closeIcon}
+                        name={type.toLowerCase()}
+                      />
+                    </TouchableOpacity>
+                  )}
               </View>
               <View
                 style={[
@@ -131,11 +134,12 @@ class MDialog extends Component {
                 <Text>Button Style : {buttonStyle}</Text>
                 <Text>Button Placement : {buttonPlacement}</Text>
               </View>
-              {(type === "OK_CANCEL" || type === "YES_NO") && (
+              {(type === ButtonConst.Type.OK_CANCEL ||
+                type === ButtonConst.Type.YES_NO) && (
                 <View
                   style={[
                     dialogSize.dialogButtonArea,
-                    buttonStyle === "THEME" && {
+                    buttonStyle === ButtonConst.Style.THEME && {
                       borderTopWidth: 0,
                       paddingTop: 8
                     }
@@ -155,16 +159,17 @@ class MDialog extends Component {
               )}
             </View>
 
-            {type === "CLOSE" && buttonPlacement === "ISOLATED" && (
-              <View style={dialogSize.closeButtonArea}>
-                <TouchableOpacity
-                  style={dialogSize.closeButton}
-                  onPress={() => this.closeModal()}
-                >
-                  <Text style={dialogSize.closeButtonText}>Close</Text>
-                </TouchableOpacity>
-              </View>
-            )}
+            {type === ButtonConst.Type.CLOSE &&
+              buttonPlacement === ButtonConst.Placement.ISOLATED && (
+                <View style={dialogSize.closeButtonArea}>
+                  <TouchableOpacity
+                    style={dialogSize.closeButton}
+                    onPress={() => this.closeModal()}
+                  >
+                    <Text style={dialogSize.closeButtonText}>Close</Text>
+                  </TouchableOpacity>
+                </View>
+              )}
           </View>
         </Modal>
         <Text onPress={() => this.setState({ modalVisible: true })}>Show</Text>

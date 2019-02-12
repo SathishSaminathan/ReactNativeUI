@@ -3,6 +3,7 @@ import { View, Text, StyleSheet } from "react-native";
 
 import MButton from "../components/MButton";
 import Colors from "../assets/styles/Colors";
+import {ButtonConst} from "../assets/styles/themes";
 
 class MPage extends Component {
   constructor(props) {
@@ -16,7 +17,7 @@ class MPage extends Component {
     return (
       <View style={styles.container}>
         <View style={styles.buttonArea}>
-          <MButton type="CircularIcon" icon={button} />
+          <MButton type={ButtonConst.Type.CIRCULARICON} icon={button} />
         </View>
         <View style={styles.titleArea}>
           <Text style={styles.title}>{title}</Text>

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { View, Text, StyleSheet } from "react-native";
 import Colors from "../assets/styles/Colors";
+import { ButtonConst } from "../assets/styles/themes";
 
 class MCard extends Component {
   constructor(props) {
@@ -12,19 +13,19 @@ class MCard extends Component {
     const { type } = this.props;
 
     switch (type) {
-      case "CardLong":
+      case ButtonConst.Size.CARDLONG:
         return CardLong;
 
-      case "Small":
+      case ButtonConst.Size.SMALL:
         return Small;
 
-      case "Medium":
+      case ButtonConst.Size.MEDIUM:
         return Medium;
 
-      case "Large":
+      case ButtonConst.Size.LARGE:
         return Large;
 
-      case "XLarge":
+      case ButtonConst.Size.XLARGE:
         return XLarge;
 
       default:

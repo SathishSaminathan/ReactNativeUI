@@ -3,6 +3,7 @@ import { View, Text, StyleSheet, Image, Button } from "react-native";
 
 import MButton from "./MButton";
 import Colors from "../assets/styles/Colors";
+import { Bubbles, ButtonConst, Icons } from "../assets/styles/themes";
 
 class MBubble extends Component {
   constructor(props) {
@@ -10,18 +11,29 @@ class MBubble extends Component {
     this.state = {};
   }
 
+  getIcon(){
+    const {action }= this.props;
+    if(action=== Bubbles.Action.MORE){
+      return Icons.MORE
+    }
+    if(action == Bubbles.Action.DELETE)
+    {
+      return Icons.DELETE
+    }
+  }
+
   getStatus() {
     const { status } = this.props;
-    if (status === "Read") return Read;
-    if (status === "UnRead") return UnRead;
+    if (status === Bubbles.Status.READ) return Read;
+    if (status === Bubbles.Status.UNREAD) return UnRead;
   }
 
   getAction(){
       const { action} = this.props;
-      if(action === "Delete"){
+      if(action === Bubbles.Action.DELETE){
         return Delete;
       }
-      if(action === "More"){
+      if(action === Bubbles.Action.MORE){
           return More;
       }
   }
@@ -29,6 +41,7 @@ class MBubble extends Component {
   render() {
     const CardStatus = this.getStatus();
     const CardAction = this.getAction();
+    const CardIcon = this.getIcon();
     const { status, action } = this.props;
     return (
       <View style={[styles.bubbleCard, CardStatus.card, action&& CardAction.card]}>
@@ -61,7 +74,7 @@ class MBubble extends Component {
               right: 0
             }}
           >
-            <MButton type="ActionButton" icon={action} label={action} />
+            <MButton type={ButtonConst.Type.ACTIONBUTTON} icon={CardIcon} label={action} />
           </View>
         )}
       </View>

@@ -16,6 +16,15 @@ import MButton from "./MButton";
 import MDialog from "./MDialog";
 import MListButton from "./MListButton";
 import MFormField from "./MFormField";
+import {
+  Theme,
+  Icons,
+  Bubbles,
+  FormField,
+  ButtonConst
+} from "../assets/styles/themes";
+import MDivider from "./MDivider";
+import MOrDivider from "./MOrDivider";
 
 const { width, height } = Dimensions.get("window");
 
@@ -47,7 +56,7 @@ export default class PlayGround extends Component {
       <View
         style={{
           flex: 1,
-          backgroundColor: Colors.lightgrey
+          backgroundColor: Colors.white
           // padding: 5
         }}
       >
@@ -55,16 +64,173 @@ export default class PlayGround extends Component {
           flex:1,
           justifyContent:'space-around'
         }}>
-        <MBubble status="Read"  />
-        <MBubble status="UnRead"  />
-        <MBubble status="Read" action="Delete" />
-        <MBubble status="Read" action="More" />
+        <MBubble status={Bubbles.Status.READ}  />
+        <MBubble status={Bubbles.Status.UNREAD}  />
+        <MBubble status={Bubbles.Status.READ} action={Bubbles.Action.MORE} />
+        <MBubble status={Bubbles.Status.UNREAD} action={Bubbles.Action.DELETE} />
         </View> */}
 
-        {/* <MButton type="CircularIcon" icon="Save" />
-        <MButton type="ActionButton" icon="Save" /> */}
+        {/* <MButton type={ButtonConst.Type.CIRCULARICON} icon="Save" /> */}
+        {/* <View
+          style={{
+            flex: 1,
+            flexDirection: "column",
+            justifyContent: "space-around"
+          }}
+        >
+          <View
+            style={{
+              flex: 1,
+              flexDirection: "row",
+              justifyContent: "space-around"
+            }}
+          >
+            <MButton
+              theme={Theme.RED}
+              icon={Icons.SAVE}
+              type={ButtonConst.Type.NOTIFICATIONBUTTON}
+              number={1}
+              size="Large"
+              enabled={true}
+              label="Save"
+              onPress={this.onPress}
+            />
+            <MButton
+              theme={Theme.RED}
+              icon={Icons.SAVE}
+              type={ButtonConst.Type.ICON}
+              number={1}
+              size="Large"
+              enabled={true}
+              label="Save"
+              onPress={this.onPress}
+            />
+            <MButton
+              theme={Theme.RED}
+              icon={Icons.SAVE}
+              type={ButtonConst.Type.CIRCULARICON}
+              number={1}
+              size="Large"
+              enabled={true}
+              label="Save"
+              onPress={this.onPress}
+            />
+            <MButton
+              theme={Theme.RED}
+              icon={Icons.SAVE}
+              type={ButtonConst.Type.CIRCULARBUTTON}
+              number={1}
+              size="Large"
+              enabled={true}
+              label="Save"
+              onPress={this.onPress}
+            />
+            <MButton
+              theme={Theme.RED}
+              icon={Icons.SAVE}
+              type={ButtonConst.Type.REGULARBUTTON}
+              number={1}
+              size="Large"
+              enabled={true}
+              label="Save"
+              onPress={this.onPress}
+            />
 
-        {/* <MPage button="Back" title="Notifications" subtitle="Create an account to continue Create an account to continue.."/> */}
+            <MButton
+              theme={Theme.RED}
+              icon={Icons.SAVE}
+              type={ButtonConst.Type.ACTIONBUTTON}
+              number={1}
+              size="Large"
+              enabled={true}
+              label="Save"
+              onPress={this.onPress}
+            />
+          </View>
+
+          <View
+            style={{
+              flex: 1,
+              flexDirection: "row",
+              justifyContent: "space-around"
+            }}
+          >
+            <MButton
+              theme={Theme.RED}
+              icon={Icons.SAVE}
+              type={ButtonConst.Type.NOTIFICATIONBUTTON}
+              number={1}
+              size="Large"
+              enabled={false}
+              label="Save"
+              onPress={this.onPress}
+            />
+            <MButton
+              theme={Theme.RED}
+              icon={Icons.SAVE}
+              type={ButtonConst.Type.ICON}
+              number={1}
+              size="Large"
+              enabled={false}
+              label="Save"
+              onPress={this.onPress}
+            />
+            <MButton
+              theme={Theme.RED}
+              icon={Icons.SAVE}
+              type={ButtonConst.Type.CIRCULARICON}
+              number={1}
+              size="Large"
+              enabled={false}
+              label="Save"
+              onPress={this.onPress}
+            />
+            <MButton
+              theme={Theme.RED}
+              icon={Icons.SAVE}
+              type={ButtonConst.Type.CIRCULARBUTTON}
+              number={1}
+              size="Large"
+              enabled={false}
+              label="Save"
+              onPress={this.onPress}
+            />
+            <MButton
+              theme={Theme.RED}
+              icon={Icons.SAVE}
+              type={ButtonConst.Type.REGULARBUTTON}
+              number={1}
+              size="Large"
+              enabled={false}
+              label="Save"
+              onPress={this.onPress}
+            />
+
+            <MButton
+              theme={Theme.RED}
+              icon={Icons.SAVE}
+              type={ButtonConst.Type.ACTIONBUTTON}
+              number={1}
+              size="Large"
+              enabled={false}
+              label="Save"
+              onPress={this.onPress}
+            />
+          </View>
+          <MButton
+            theme={Theme.RED}
+            icon={Icons.SAVE}
+            type={ButtonConst.Type.BOTTOMBUTTON}
+            number={1}
+            size="Large"
+            enabled={false}
+            label="Save"
+            onPress={this.onPress}
+          />
+        </View> */}
+        {/* <MButton type={ButtonConst.Type.CIRCULARBUTTON} icon={Icons.DELETE} theme={Theme.RED} label="Delete"/> */}
+
+        {/* <MPage button={Icons.BACK} title="Notifications" subtitle="Create an account to continue Create an account to continue.."/> */}
 
         {/* <View
           style={{
@@ -73,8 +239,8 @@ export default class PlayGround extends Component {
             justifyContent: "space-between"
           }}
         >
-          <MCard type="Small" />
-          <MCard type="Medium" />
+          <MCard type={ButtonConst.Size.SMALL} />
+          <MCard type={ButtonConst.Size.MEDIUM} />
         </View>
         <View
           style={{
@@ -84,36 +250,36 @@ export default class PlayGround extends Component {
             paddingTop: 10
           }}
         >
-          <MCard type="Card" />
-          <MCard type="CardLong" />
+          <MCard type={ButtonConst.Size.CARD} />
+          <MCard type={ButtonConst.Size.CARDLONG} />
         </View> */}
-        {/* <MCard type="Large"/> */}
-        {/* <MCard type="XLarge"/> */}
+        {/* <MCard type={ButtonConst.Size.LARGE}/>
+        <MCard type={ButtonConst.Size.XLARGE}/> */}
 
-        {/* <MDialog type="OK_CANCEL" size="LARGE" buttonStyle="THEME"  buttonPlacement="INLINE_TOP_RIGHT"/> */}
+        {/* <MDialog type={ButtonConst.Type.CLOSE} size={ButtonConst.Size.SMALL} buttonStyle={ButtonConst.Style.THEME}  buttonPlacement={ButtonConst.Placement.INLINE_TOP_RIGHT}/> */}
 
         {/* <MListButton
-          icon="plane"
+          icon={Icons.PLANE}
           iconText="Airplane Mode"
           isExpand={true}
           buttonStatus="Connected"
           actionButton={Switch}
         />
         <MListButton
-          icon="wifi"
+          icon={Icons.WIFI}
           iconText="Wi-Fi"
           buttonStatus="Connected"
           actionButton=""
         />
         <MListButton
-          icon="bluetooth"
+          icon={Icons.BLUETOOTH}
           iconText="Bluetooth"
           buttonStatus="on"
           actionButton=""
         />
-        <MListButton icon="music" iconText="Cellular" actionButton="" /> */}
+        <MListButton icon={Icons.MUSIC} iconText="Cellular" actionButton="" /> */}
 
-        <View
+        {/* <View
           style={{
             alignItems: "center",
             justifyContent: "space-around",
@@ -123,8 +289,8 @@ export default class PlayGround extends Component {
           <MFormField
             label="Name"
             // labelName="Name"
-            icon="person"
-            type="INPUT"
+            icon={Icons.PERSON}
+            type={FormField.Type.INPUT}
             isActive={false}
             isValid={true}
             defaultValue=""
@@ -137,8 +303,8 @@ export default class PlayGround extends Component {
           <MFormField
             label="Email Address"
             // labelName="Email"
-            icon="mail"
-            type="EMAIL"
+            icon={Icons.MAIL}
+            type={FormField.Type.EMAIL}
             isActive={false}
             isValid={false}
             defaultValue=""
@@ -151,8 +317,8 @@ export default class PlayGround extends Component {
           <MFormField
             label="Confirm Password"
             // labelName="Password"
-            icon="lock"
-            type="PASSWORD"
+            icon={Icons.PASSWORD}
+            type={FormField.Type.PASSWORD}
             isActive={false}
             isValid={true}
             defaultValue=""
@@ -162,7 +328,10 @@ export default class PlayGround extends Component {
             validationErrors=""
             // getValue={this.setValue}
           />
-        </View>
+        </View> */}
+
+        <Text>Divider</Text>
+        <MOrDivider/>
       </View>
     );
   }
