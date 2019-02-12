@@ -26,6 +26,7 @@ import {
 import MDivider from "./MDivider";
 import MOrDivider from "./MOrDivider";
 import MStories from "./MStories";
+import TextAnimation from "./Animation/TextAnimation";
 
 const { width, height } = Dimensions.get("window");
 
@@ -331,7 +332,7 @@ export default class PlayGround extends Component {
           />
         </View> */}
 
-        <Text>Stories</Text>
+        {/* <Text>Stories</Text>
         <MOrDivider/>
         <View
           style={{
@@ -351,7 +352,8 @@ export default class PlayGround extends Component {
             numberOfStories={8}
             customStories={["#4CD964", "#FF2956", "#4CD964", "#FF2956"]}
           />
-        </View>
+        </View> */}
+        <TextAnimation/>
       </View>
     );
   }
