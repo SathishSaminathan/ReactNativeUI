@@ -27,6 +27,7 @@ import MDivider from "./MDivider";
 import MOrDivider from "./MOrDivider";
 import MStories from "./MStories";
 import TextAnimation from "./Animation/TextAnimation";
+import FlipAnimation from "./Animation/FlipAnimation";
 
 const { width, height } = Dimensions.get("window");
 
@@ -353,7 +354,8 @@ export default class PlayGround extends Component {
             customStories={["#4CD964", "#FF2956", "#4CD964", "#FF2956"]}
           />
         </View> */}
-        <TextAnimation/>
+        {/* <TextAnimation/> */}
+        <FlipAnimation/>
       </View>
     );
   }
