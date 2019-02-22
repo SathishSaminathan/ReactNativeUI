@@ -29,6 +29,7 @@ import MStories from "./MStories";
 import TextAnimation from "./Animation/TextAnimation";
 import FlipAnimation from "./Animation/FlipAnimation";
 import MTab from "./MTab";
+import MPieChart from "./MPieChart";
 
 const { width, height } = Dimensions.get("window");
 
@@ -356,7 +357,10 @@ export default class PlayGround extends Component {
           />
         </View> */}
         {/* <TextAnimation/> */}
-        <FlipAnimation/>
+        {/* <FlipAnimation/> */}
+
+        <MPieChart correct={4} wrong={18}/>
+
         {/* <MTab
           tabs={["CATEGORIES", "QUESTIONS", "TESTS"]}
           activeTab="CATEGORIES"
