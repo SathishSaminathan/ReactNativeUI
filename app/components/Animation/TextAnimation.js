@@ -6,6 +6,14 @@ class TextAnimation extends Component {
     super(props);
     this.animated = new Animated.Value(0);
     this.state = {};
+    this.opacity = this.animated.interpolate({
+      inputRange: [0, 1],
+      outputRange: [0, 1]
+    });
+    this.translateX = this.animated.interpolate({
+      inputRange: [0, 1],
+      outputRange: [-100, 1]
+    });
   }
 
   componentDidMount() {
@@ -25,19 +33,9 @@ class TextAnimation extends Component {
       inputRange: [0, 1],
       outputRange: [1000, 1]
     });
-
-    const translateX = this.animated.interpolate({
-      inputRange: [0, 1],
-      outputRange: [-100, 1]
-    });
-
-    const opacity = this.animated.interpolate({
-      inputRange: [0, 1],
-      outputRange: [0, 1]
-    });
-
+  
+    const {opacity,translateX} = this;
     const transform = [{ translateX }];
-
     return (
       <View
         style={{
@@ -46,7 +44,7 @@ class TextAnimation extends Component {
           justifyContent: "center"
         }}
       >
-        <Animated.Text style={[styles.textStyle, { opacity }]}>
+        <Animated.Text style={[styles.textStyle, {opacity}, {transform}]}>
           Sachu
         </Animated.Text>
         <Button

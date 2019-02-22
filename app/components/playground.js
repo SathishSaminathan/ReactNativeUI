@@ -28,6 +28,7 @@ import MOrDivider from "./MOrDivider";
 import MStories from "./MStories";
 import TextAnimation from "./Animation/TextAnimation";
 import FlipAnimation from "./Animation/FlipAnimation";
+import MTab from "./MTab";
 
 const { width, height } = Dimensions.get("window");
 
@@ -356,6 +357,11 @@ export default class PlayGround extends Component {
         </View> */}
         {/* <TextAnimation/> */}
         <FlipAnimation/>
+        {/* <MTab
+          tabs={["CATEGORIES", "QUESTIONS", "TESTS"]}
+          activeTab="CATEGORIES"
+          disabledTab={["QUESTIONS", "TESTS"]}
+        /> */}
       </View>
     );
   }
