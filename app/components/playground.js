@@ -30,6 +30,8 @@ import TextAnimation from "./Animation/TextAnimation";
 import FlipAnimation from "./Animation/FlipAnimation";
 import MTab from "./MTab";
 import MPieChart from "./MPieChart";
+import AnimatedPageIndicator from "./AnimatedPageIndicator";
+import Walkthrough from "./Walkthrough";
 
 const { width, height } = Dimensions.get("window");
 
@@ -359,13 +361,18 @@ export default class PlayGround extends Component {
         {/* <TextAnimation/> */}
         {/* <FlipAnimation/> */}
 
-        <MPieChart correct={4} wrong={18}/>
+        {/* <MPieChart correct={4} wrong={18}/> */}
+
+        {/* <AnimatedPageIndicator/> */}
 
         {/* <MTab
           tabs={["CATEGORIES", "QUESTIONS", "TESTS"]}
           activeTab="CATEGORIES"
           disabledTab={["QUESTIONS", "TESTS"]}
         /> */}
+
+        <Walkthrough/>
+
       </View>
     );
   }
