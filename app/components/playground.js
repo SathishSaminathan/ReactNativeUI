@@ -32,6 +32,7 @@ import MTab from "./MTab";
 import MPieChart from "./MPieChart";
 import AnimatedPageIndicator from "./AnimatedPageIndicator";
 import Walkthrough from "./Walkthrough";
+import MenuAnimation from "./Animation/MenuAnimation";
 
 const { width, height } = Dimensions.get("window");
 
@@ -371,7 +372,9 @@ export default class PlayGround extends Component {
           disabledTab={["QUESTIONS", "TESTS"]}
         /> */}
 
-        <Walkthrough/>
+        {/* <Walkthrough/> */}
+
+        <MenuAnimation/>
 
       </View>
     );
