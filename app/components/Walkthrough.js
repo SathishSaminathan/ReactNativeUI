@@ -12,10 +12,27 @@ class Walkthrough extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <ScrollView horizontal={true} pagingEnabled={true} bounces={false} showsHorizontalScrollIndicator={false}>
-          <View style={{ width: width, height: height, backgroundColor: "red", }}><Text>One</Text></View>
-          <View style={{ width: width, height: height, backgroundColor: "blue" }}><Text>Two</Text></View>
-          <View style={{ width: width, height: height, backgroundColor: "green" }}><Text>Three</Text></View>
+        <ScrollView
+          horizontal={true}
+          pagingEnabled={true}
+          bounces={false}
+          showsHorizontalScrollIndicator={false}
+        >
+          <View
+            style={{ width: width, height: height, backgroundColor: "red" }}
+          >
+            <Text>One</Text>
+          </View>
+          <View
+            style={{ width: width, height: height, backgroundColor: "blue" }}
+          >
+            <Text>Two</Text>
+          </View>
+          <View
+            style={{ width: width, height: height, backgroundColor: "green" }}
+          >
+            <Text>Three</Text>
+          </View>
         </ScrollView>
       </View>
     );

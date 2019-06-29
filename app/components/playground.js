@@ -33,6 +33,7 @@ import MPieChart from "./MPieChart";
 import AnimatedPageIndicator from "./AnimatedPageIndicator";
 import Walkthrough from "./Walkthrough";
 import MenuAnimation from "./Animation/MenuAnimation";
+import SlackProfile from "./Animation/SlackProfile";
 
 const { width, height } = Dimensions.get("window");
 
@@ -374,7 +375,9 @@ export default class PlayGround extends Component {
 
         {/* <Walkthrough/> */}
 
-        <MenuAnimation/>
+        {/* <MenuAnimation/> */}
+
+        <SlackProfile/>
 
       </View>
     );

@@ -53,7 +53,7 @@ class MenuAnimation extends Component {
     });
 
     return (
-      <View style={{ flex: 1, position: "relative" }}>
+      <View style={{ flex: 1 }}>
         <View
           style={{
             height: 60,
