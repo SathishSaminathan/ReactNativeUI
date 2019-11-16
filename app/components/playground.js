@@ -34,6 +34,7 @@ import AnimatedPageIndicator from "./AnimatedPageIndicator";
 import Walkthrough from "./Walkthrough";
 import MenuAnimation from "./Animation/MenuAnimation";
 import SlackProfile from "./Animation/SlackProfile";
+import AudioRecorder from "./AudioRecorder";
 
 const { width, height } = Dimensions.get("window");
 
@@ -377,7 +378,9 @@ export default class PlayGround extends Component {
 
         {/* <MenuAnimation/> */}
 
-        <SlackProfile/>
+        {/* <SlackProfile/> */}
+        
+        <AudioRecorder/>
 
       </View>
     );
